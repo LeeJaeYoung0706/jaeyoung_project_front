@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+:root {
+    /* Brand color palette */
+    --brand-600: #5465FF; /* primary deep */
+    --brand-500: #788BFF;
+    --brand-400: #9BB1FF;
+    --brand-300: #BFD7FF;
+    --brand-200: #E2FDFF; /* light */
+
+    --brand2-600: #1B3C53; /* primary deep */
+    --brand2-500: #234C6A;
+    --brand2-300: #456882;
+    --brand2-200: #D2C1B6;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
