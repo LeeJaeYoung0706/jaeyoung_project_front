@@ -5,8 +5,11 @@ export function proxy(req: NextRequest) {
     const host = req.headers.get("host") || "";
     const url = req.nextUrl;
 
+    console.log(host , "  host")
+
     if (host.startsWith("portfolio.")) {
         url.pathname = `/portfolio${url.pathname === "/" ? "" : url.pathname}`;
+        console.log(url , "  url")
         return NextResponse.rewrite(url);
     }
 
