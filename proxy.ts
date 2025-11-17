@@ -1,18 +1,17 @@
 import {NextRequest, NextResponse} from "next/server";
 
+const SECTIONS = ["portfolio", "mes"] as const;
+
 export function proxy(req: NextRequest) {
 
     const host = req.headers.get("host") || "";
     const url = req.nextUrl;
-
-    console.log(host , "  host")
-
+    // 로그인 1 guest 만들기
     if (host.startsWith("portfolio.")) {
         url.pathname = `/portfolio${url.pathname === "/" ? "" : url.pathname}`;
-        console.log(url , "  url")
         return NextResponse.rewrite(url);
     }
-
+    // 다른 로그인 guest 만들기
     if (host.startsWith("mes.")) {
         url.pathname = `/mes${url.pathname === "/" ? "" : url.pathname}`;
         return NextResponse.rewrite(url);
