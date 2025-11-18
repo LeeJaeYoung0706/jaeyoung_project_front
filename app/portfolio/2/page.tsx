@@ -4,7 +4,7 @@ export default function Portfolio2Page() {
   return (
     <>
       <div>
-          PortfolioPage2
+        PortfolioPage2
         <div>PortfolioPage2</div>
       </div>
       <div>PortfolioPage</div>

@@ -5,7 +5,6 @@ import prettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 import tsParser from "@typescript-eslint/parser";
 
-
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
@@ -45,13 +44,7 @@ const eslintConfig = defineConfig([
 
   prettier,
 
-  globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-    "node_modules/**",
-  ]),
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", "node_modules/**"]),
 ]);
 
 export default eslintConfig;

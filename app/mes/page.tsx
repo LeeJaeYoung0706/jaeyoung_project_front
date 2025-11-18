@@ -4,7 +4,7 @@ export default function MesPage() {
   return (
     <>
       <div>
-          MesPage
+        MesPage
         <div>MesPage</div>
       </div>
       <div>MesPage</div>

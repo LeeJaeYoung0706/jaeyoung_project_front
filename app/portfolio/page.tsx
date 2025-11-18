@@ -1,14 +1,13 @@
-
-import {Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function PortfolioPage() {
   return (
     <>
       <div>
-          PortfolioPage
+        PortfolioPage
         <div>PortfolioPage</div>
       </div>
-        <Button variant={"default"}>test</Button>
+      <Button variant={"default"}>test</Button>
       <div>PortfolioPage</div>
     </>
   );
