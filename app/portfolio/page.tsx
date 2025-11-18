@@ -1,4 +1,5 @@
-import Image from "next/image";
+
+import {Button} from "@/components/ui/button";
 
 export default function PortfolioPage() {
   return (
@@ -7,6 +8,7 @@ export default function PortfolioPage() {
           PortfolioPage
         <div>PortfolioPage</div>
       </div>
+        <Button variant={"default"}>test</Button>
       <div>PortfolioPage</div>
     </>
   );

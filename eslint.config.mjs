@@ -3,12 +3,13 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
+import tsParser from "@typescript-eslint/parser";
+
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
 
-  // TypeScript 규칙 설정
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -20,15 +21,15 @@ const eslintConfig = defineConfig([
       },
     },
     plugins: {
-      "@typescript-eslint": tsPlugin,
-      "react-hooks": reactHooks,
-      import: importPlugin,
+      // "@typescript-eslint": tsPlugin,   // ❌ 제거
+      // "react-hooks": reactHooks,        // ❌ Next preset에 이미 들어있음
+      //import: importPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-      ...tsPlugin.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
+      // ...tsPlugin.configs.recommended.rules,       // ❌ 중복 & 불필요
+      // ...reactHooks.configs.recommended.rules,     // ❌ Next가 이미 가지고 있음
 
-      // 🔥 import 순서 자동 정렬
       "import/order": [
         "warn",
         {
@@ -36,29 +37,15 @@ const eslintConfig = defineConfig([
           "newlines-between": "always",
         },
       ],
-
-      // 🔥 사용 안 하는 변수
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-
-      // 🔥 console 제한
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "prettier/prettier": "error",
     },
   },
 
-  // Prettier 충돌 제거
-  {
-    plugins: {
-      prettier: prettierPlugin,
-    },
-    rules: {
-      "prettier/prettier": "error", // prettier 포맷 안 맞으면 에러 처리
-    },
-  },
   prettier,
 
-  // Override default ignores of eslint-config-next.
   globalIgnores([
-    // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
